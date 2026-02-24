@@ -1,20 +1,23 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Código Emocional da Riqueza
 
-# Run and deploy your AI Studio app
+Página de vendas/captura focada em autoridade e conversão.
 
-This contains everything you need to run your app locally.
+## Como fazer o deploy no GitHub Pages
 
-View your app in AI Studio: https://ai.studio/apps/578182b4-416e-4ea2-9b7f-969bc5833feb
+1. Crie um novo repositório no GitHub.
+2. Faça o push do código para o repositório:
+   ```bash
+   git init
+   git add .
+   git commit -m "Initial commit"
+   git branch -M main
+   git remote add origin https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git
+   git push -u origin main
+   ```
+3. No GitHub, vá em **Settings > Pages**.
+4. Em **Build and deployment > Source**, selecione **GitHub Actions**.
+5. O workflow que eu criei em `.github/workflows/deploy.yml` fará o resto automaticamente sempre que você fizer um push para a branch `main`.
 
-## Run Locally
+## Configurações do Vite
 
-**Prerequisites:**  Node.js
-
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+No arquivo `vite.config.ts`, a propriedade `base` está configurada como `'./'`. Isso permite que o site funcione tanto na raiz do domínio quanto em subpastas (como `usuario.github.io/repo/`).
