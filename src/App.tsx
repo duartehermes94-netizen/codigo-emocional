@@ -104,7 +104,7 @@ const HeroSection = () => (
         <div>
           <div className="relative w-full aspect-video md:aspect-[21/9] rounded-3xl overflow-hidden shadow-2xl border border-white/5 mb-8">
             <img 
-              src="https://i.imgur.com/K7nMEWh.jpg" 
+              src="https://i.imgur.com/K7nMEWhh.jpg" 
               alt="Casal preocupado com finanças" 
               className="w-full h-full object-cover object-center"
               referrerPolicy="no-referrer"
