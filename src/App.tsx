@@ -44,6 +44,16 @@ const FadeIn: React.FC<{ children: React.ReactNode, delay?: number }> = ({ child
   </motion.div>
 );
 
+const HeroFadeIn: React.FC<{ children: React.ReactNode, delay?: number }> = ({ children, delay = 0 }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.7, delay, ease: "easeOut" }}
+  >
+    {children}
+  </motion.div>
+);
+
 const CTAButton = ({ children, href = "#", className = "" }: { children: React.ReactNode, href?: string, className?: string }) => (
   <a 
     href={href}
@@ -74,42 +84,46 @@ const HeroSection = () => (
     <div className="pt-6 md:pt-16 px-6">
       <div className="max-w-3xl mx-auto">
         <div className="flex flex-col items-center text-center z-10">
-        <FadeIn delay={0}>
+        <HeroFadeIn delay={0}>
           <img 
             src="https://i.postimg.cc/hSNsp4Q6/logocodigo-copiar2-2.webp" 
             alt="Logo Código Emocional" 
             className="h-20 md:h-28 mb-6 object-contain mx-auto"
             referrerPolicy="no-referrer"
+            fetchPriority="high"
+            loading="eager"
           />
-        </FadeIn>
+        </HeroFadeIn>
 
-        <FadeIn delay={0.1}>
+        <HeroFadeIn delay={0.1}>
           <h1 className="text-3xl md:text-5xl lg:text-[3.25rem] font-serif leading-[1.1] mb-6 text-[#f4f1e1]">
             Cansado(a) de ver o <span className="italic text-accent">dinheiro escorrer pelas mãos</span>?
           </h1>
-        </FadeIn>
+        </HeroFadeIn>
 
-        <FadeIn delay={0.2}>
+        <HeroFadeIn delay={0.2}>
           <div className="relative w-full aspect-video md:aspect-[21/9] rounded-3xl overflow-hidden shadow-2xl border border-white/5 mb-8">
             <img 
               src="https://i.imgur.com/K7nMEWh.jpg" 
               alt="Casal preocupado com finanças" 
               className="w-full h-full object-cover object-center"
               referrerPolicy="no-referrer"
+              fetchPriority="high"
+              loading="eager"
             />
           </div>
-        </FadeIn>
+        </HeroFadeIn>
         
-        <FadeIn delay={0.4}>
+        <HeroFadeIn delay={0.4}>
           <p className="text-lg md:text-xl font-serif text-[#e8e3d3] mb-4 leading-relaxed max-w-xl">
             Desvende o <span className="italic">Código Emocional</span> que te impede de prosperar e transforme sua realidade financeira em 7 dias.
           </p>
           <p className="text-base md:text-lg font-sans text-[#a8a497] mb-12 leading-relaxed max-w-xl">
             Descubra os bloqueios emocionais escondidos que sabotam sua riqueza e aprenda a reprogramá-los em apenas 10 minutos por dia.
           </p>
-        </FadeIn>
+        </HeroFadeIn>
         
-        <FadeIn delay={0.6}>
+        <HeroFadeIn delay={0.6}>
           <a 
             href="#identification"
             className="group inline-flex items-center gap-4 pr-8 pl-2 py-2 max-w-md w-full md:w-auto text-xs md:text-sm font-bold tracking-widest text-[#0c100d] uppercase transition-all duration-300 bg-[#e8e3d3] rounded-full hover:bg-white hover:scale-105"
@@ -121,7 +135,7 @@ const HeroSection = () => (
               Quero Desbloquear Minha<br className="hidden md:block" /> Riqueza Agora!
             </span>
           </a>
-        </FadeIn>
+        </HeroFadeIn>
       </div>
     </div>
     </div>
@@ -265,6 +279,8 @@ const ProductPresentationSection = () => (
             alt="Mockup Código Emocional da Riqueza" 
             className="w-full max-w-md md:max-w-2xl mx-auto mb-12 object-contain hover:scale-105 transition-transform duration-500"
             referrerPolicy="no-referrer"
+            loading="lazy"
+            decoding="async"
           />
         </FadeIn>
       </FadeIn>
@@ -546,6 +562,8 @@ const WhatYouReceiveSection = () => (
                 alt="Bônus Exclusivo" 
                 className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity duration-300" 
                 referrerPolicy="no-referrer"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <Gift className="w-8 h-8 text-accent mb-4" />
@@ -565,6 +583,8 @@ const WhatYouReceiveSection = () => (
                 alt="Bônus Exclusivo" 
                 className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity duration-300" 
                 referrerPolicy="no-referrer"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <Gift className="w-8 h-8 text-accent mb-4" />
@@ -584,6 +604,8 @@ const WhatYouReceiveSection = () => (
                 alt="Bônus Exclusivo" 
                 className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity duration-300" 
                 referrerPolicy="no-referrer"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <Gift className="w-8 h-8 text-accent mb-4" />
@@ -686,7 +708,14 @@ const WhatYouReceiveSection = () => (
               </CTAButton>
               
               <div className="flex justify-center opacity-60 hover:opacity-100 transition-opacity">
-                <img src="https://i.imgur.com/8ypyhmQ.png" alt="Formas de Pagamento" className="h-8 object-contain" referrerPolicy="no-referrer" />
+              <img 
+                src="https://i.imgur.com/8ypyhmQ.png" 
+                alt="Formas de Pagamento" 
+                className="h-8 object-contain" 
+                referrerPolicy="no-referrer" 
+                loading="lazy"
+                decoding="async"
+              />
               </div>
             </div>
           </div>
