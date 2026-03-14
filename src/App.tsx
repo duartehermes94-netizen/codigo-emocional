@@ -615,6 +615,28 @@ const WhatYouReceiveSection = () => (
               <p>O Código Emocional da Riqueza vale <span className="line-through">R$ 297,00</span> (só os bônus).</p>
             </div>
 
+            <div className="bg-accent/5 rounded-2xl p-6 mb-8 border border-accent/20">
+              <p className="text-sm font-bold text-ink mb-4 text-center uppercase tracking-widest">O que você vai receber:</p>
+              <ul className="space-y-3 text-sm text-ink/80">
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
+                  <span><strong>E-book Completo:</strong> O Código Emocional da Riqueza</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
+                  <span><strong>Bônus 1:</strong> 21 Coisas Que Você Precisa Desapegar Para Prosperar</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
+                  <span><strong>Bônus 2:</strong> Guia Rápido: Hábitos de Quem Desbloqueia a Riqueza</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
+                  <span><strong>Bônus 3:</strong> Ativação Matinal: 50 Afirmações Poderosas</span>
+                </li>
+              </ul>
+            </div>
+
             <div className="bg-white rounded-3xl p-8 mb-8 shadow-sm border border-accent/10 relative overflow-hidden">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-accent/50 to-transparent"></div>
               <p className="text-center text-xs font-bold uppercase tracking-widest text-accent mb-2">Investimento Único</p>
