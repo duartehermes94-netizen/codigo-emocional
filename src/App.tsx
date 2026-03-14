@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { 
   CheckCircle2, 
@@ -910,6 +910,88 @@ const Footer = () => (
 );
 
 export default function App() {
+  useEffect(() => {
+    // ===== RASTREAMENTO DE UTM NA PÁGINA =====
+
+    // 1. Captura os parâmetros UTM da URL
+    function capturarUTM() {
+      const params = new URLSearchParams(window.location.search);
+      return {
+        source: params.get('utm_source') || 'direto',
+        medium: params.get('utm_medium') || 'direto',
+        campaign: params.get('utm_campaign') || 'sem_campanha',
+        content: params.get('utm_content') || 'sem_conteudo'
+      };
+    }
+
+    // 2. Armazena no localStorage do navegador
+    function armazenarUTM() {
+      const utm = capturarUTM();
+      localStorage.setItem('utm_rastreamento', JSON.stringify(utm));
+      console.log('UTM armazenado:', utm);
+    }
+
+    // 3. Passa o UTM para o checkout da Kiwify
+    function passarUTMparaCheckout() {
+      const utmStr = localStorage.getItem('utm_rastreamento');
+      if (!utmStr) return;
+      
+      const utm = JSON.parse(utmStr);
+      
+      // Encontra TODOS os botões de compra
+      const botoesCompra = document.querySelectorAll('a[href*="kiwify"], button[data-kiwify]');
+      
+      botoesCompra.forEach((botaoCompra) => {
+        if (botaoCompra instanceof HTMLAnchorElement) {
+          const urlCheckout = botaoCompra.href;
+          
+          // Evita adicionar duplicado se o React re-renderizar
+          if (!urlCheckout.includes('utm_source')) {
+            const separador = urlCheckout.includes('?') ? '&' : '?';
+            botaoCompra.href = `${urlCheckout}${separador}utm_source=${utm.source}&utm_medium=${utm.medium}&utm_campaign=${utm.campaign}&utm_content=${utm.content}`;
+            console.log('URL do checkout atualizada:', botaoCompra.href);
+          }
+        }
+      });
+    }
+
+    // 4. Registra quando o usuário clica no botão de compra
+    function rastrearClique() {
+      const botoesCompra = document.querySelectorAll('a[href*="kiwify"], button[data-kiwify]');
+      
+      botoesCompra.forEach((botaoCompra) => {
+        botaoCompra.addEventListener('click', function() {
+          const utmStr = localStorage.getItem('utm_rastreamento');
+          if (!utmStr) return;
+          
+          const utm = JSON.parse(utmStr);
+          
+          // Envia dados para o Google Analytics (opcional)
+          if ((window as any).gtag) {
+            (window as any).gtag('event', 'clique_compra', {
+              utm_source: utm.source,
+              utm_medium: utm.medium,
+              utm_campaign: utm.campaign
+            });
+          }
+          
+          console.log('Clique registrado com UTM:', utm);
+        });
+      });
+    }
+
+    // 5. Executa tudo quando o componente monta
+    armazenarUTM();
+    
+    // Usamos um pequeno delay para garantir que todos os botões foram renderizados no DOM
+    const timer = setTimeout(() => {
+      passarUTMparaCheckout();
+      rastrearClique();
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className="min-h-screen selection:bg-accent/30 selection:text-ink">
       <HeroSection />
