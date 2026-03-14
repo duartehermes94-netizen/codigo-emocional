@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'motion/react';
+import { m, LazyMotion, domAnimation } from 'motion/react';
 import { 
   CheckCircle2, 
   Circle,
@@ -34,24 +34,24 @@ import {
 // --- Shared Components ---
 
 const FadeIn: React.FC<{ children: React.ReactNode, delay?: number }> = ({ children, delay = 0 }) => (
-  <motion.div
+  <m.div
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true, margin: "-100px" }}
     transition={{ duration: 0.7, delay, ease: "easeOut" }}
   >
     {children}
-  </motion.div>
+  </m.div>
 );
 
 const HeroFadeIn: React.FC<{ children: React.ReactNode, delay?: number }> = ({ children, delay = 0 }) => (
-  <motion.div
+  <m.div
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.7, delay, ease: "easeOut" }}
   >
     {children}
-  </motion.div>
+  </m.div>
 );
 
 const CTAButton = ({ children, href = "#", className = "" }: { children: React.ReactNode, href?: string, className?: string }) => (
@@ -104,7 +104,7 @@ const HeroSection = () => (
         <div>
           <div className="relative w-full aspect-video md:aspect-[21/9] rounded-3xl overflow-hidden shadow-2xl border border-white/5 mb-8">
             <img 
-              src="https://i.imgur.com/K7nMEWhh.jpg" 
+              src="https://i.imgur.com/K7nMEWh.jpg" 
               alt="Casal preocupado com finanças" 
               className="w-full h-full object-cover object-center"
               referrerPolicy="no-referrer"
@@ -178,7 +178,7 @@ const IdentificationSection = () => {
           {items.map((item, index) => {
             const isSelected = selectedItems.includes(index);
             return (
-              <motion.div
+              <m.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -204,7 +204,7 @@ const IdentificationSection = () => {
                 <p className={`text-lg md:text-xl font-medium leading-relaxed transition-colors duration-300 ${isSelected ? "text-[#e8e3d3]" : "text-gray-600"}`}>
                   {item}
                 </p>
-              </motion.div>
+              </m.div>
             );
           })}
         </div>
@@ -275,7 +275,7 @@ const ProductPresentationSection = () => (
         
         <FadeIn delay={0.1}>
            <img 
-            src="https://i.imgur.com/fof8HB8h.png" 
+            src="https://i.imgur.com/fof8HB8.png" 
             alt="Mockup Código Emocional da Riqueza" 
             className="w-full max-w-md md:max-w-2xl mx-auto mb-12 object-contain hover:scale-105 transition-transform duration-500"
             referrerPolicy="no-referrer"
@@ -558,7 +558,7 @@ const WhatYouReceiveSection = () => (
           <div className="p-8 rounded-3xl bg-accent/10 border border-accent/20 h-full flex flex-col">
             <div className="w-full aspect-video bg-black/20 rounded-xl mb-6 overflow-hidden border border-white/5">
               <img 
-                src="https://i.imgur.com/9fYLAzPl.png" 
+                src="https://i.imgur.com/9fYLAzP.png" 
                 alt="Bônus Exclusivo" 
                 className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity duration-300" 
                 referrerPolicy="no-referrer"
@@ -579,7 +579,7 @@ const WhatYouReceiveSection = () => (
           <div className="p-8 rounded-3xl bg-accent/10 border border-accent/20 h-full flex flex-col">
             <div className="w-full aspect-video bg-black/20 rounded-xl mb-6 overflow-hidden border border-white/5">
               <img 
-                src="https://i.imgur.com/ocTi3iGl.png" 
+                src="https://i.imgur.com/ocTi3iG.png" 
                 alt="Bônus Exclusivo" 
                 className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity duration-300" 
                 referrerPolicy="no-referrer"
@@ -600,7 +600,7 @@ const WhatYouReceiveSection = () => (
           <div className="p-8 rounded-3xl bg-accent/10 border border-accent/20 h-full flex flex-col">
             <div className="w-full aspect-video bg-black/20 rounded-xl mb-6 overflow-hidden border border-white/5">
               <img 
-                src="https://i.imgur.com/uTFMaGIl.png"  
+                src="https://i.imgur.com/uTFMaGI.png"  
                 alt="Bônus Exclusivo" 
                 className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity duration-300" 
                 referrerPolicy="no-referrer"
@@ -709,7 +709,7 @@ const WhatYouReceiveSection = () => (
               
               <div className="flex justify-center opacity-60 hover:opacity-100 transition-opacity">
               <img 
-                src="https://i.imgur.com/8ypyhmQm.png" 
+                src="https://i.imgur.com/8ypyhmQ.png" 
                 alt="Formas de Pagamento" 
                 className="h-8 object-contain" 
                 referrerPolicy="no-referrer" 
@@ -1022,20 +1022,22 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen selection:bg-accent/30 selection:text-ink">
-      <HeroSection />
-      <IdentificationSection />
-      <ProblemRevealSection />
-      <ProductPresentationSection />
-      <HowItWorksSection />
-      <StructureSection />
-      <WhyItsDifferentSection />
-      <WhatYouReceiveSection />
-      <ForWhomSection />
-      <FAQSection />
-      <TestimonialsSection />
-      <FinalCTASection />
-      <Footer />
-    </div>
+    <LazyMotion features={domAnimation}>
+      <div className="min-h-screen selection:bg-accent/30 selection:text-ink">
+        <HeroSection />
+        <IdentificationSection />
+        <ProblemRevealSection />
+        <ProductPresentationSection />
+        <HowItWorksSection />
+        <StructureSection />
+        <WhyItsDifferentSection />
+        <WhatYouReceiveSection />
+        <ForWhomSection />
+        <FAQSection />
+        <TestimonialsSection />
+        <FinalCTASection />
+        <Footer />
+      </div>
+    </LazyMotion>
   );
 }
