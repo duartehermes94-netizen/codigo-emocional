@@ -84,7 +84,7 @@ const HeroSection = () => (
     <div className="pt-6 md:pt-16 px-6">
       <div className="max-w-3xl mx-auto">
         <div className="flex flex-col items-center text-center z-10">
-        <HeroFadeIn delay={0}>
+        <div>
           <img 
             src="https://i.postimg.cc/hSNsp4Q6/logocodigo-copiar2-2.webp" 
             alt="Logo Código Emocional" 
@@ -93,18 +93,18 @@ const HeroSection = () => (
             fetchPriority="high"
             loading="eager"
           />
-        </HeroFadeIn>
+        </div>
 
-        <HeroFadeIn delay={0.1}>
+        <div>
           <h1 className="text-3xl md:text-5xl lg:text-[3.25rem] font-serif leading-[1.1] mb-6 text-[#f4f1e1]">
             Cansado(a) de ver o <span className="italic text-accent">dinheiro escorrer pelas mãos</span>?
           </h1>
-        </HeroFadeIn>
+        </div>
 
-        <HeroFadeIn delay={0.2}>
+        <div>
           <div className="relative w-full aspect-video md:aspect-[21/9] rounded-3xl overflow-hidden shadow-2xl border border-white/5 mb-8">
             <img 
-              src="https://i.imgur.com/K7nMEWh.jpg" 
+              src="https://i.imgur.com/K7nMEWhh.jpg" 
               alt="Casal preocupado com finanças" 
               className="w-full h-full object-cover object-center"
               referrerPolicy="no-referrer"
@@ -112,7 +112,7 @@ const HeroSection = () => (
               loading="eager"
             />
           </div>
-        </HeroFadeIn>
+        </div>
         
         <HeroFadeIn delay={0.4}>
           <p className="text-lg md:text-xl font-serif text-[#e8e3d3] mb-4 leading-relaxed max-w-xl">
@@ -275,7 +275,7 @@ const ProductPresentationSection = () => (
         
         <FadeIn delay={0.1}>
            <img 
-            src="https://i.imgur.com/fof8HB8.png" 
+            src="https://i.imgur.com/fof8HB8h.png" 
             alt="Mockup Código Emocional da Riqueza" 
             className="w-full max-w-md md:max-w-2xl mx-auto mb-12 object-contain hover:scale-105 transition-transform duration-500"
             referrerPolicy="no-referrer"
@@ -558,7 +558,7 @@ const WhatYouReceiveSection = () => (
           <div className="p-8 rounded-3xl bg-accent/10 border border-accent/20 h-full flex flex-col">
             <div className="w-full aspect-video bg-black/20 rounded-xl mb-6 overflow-hidden border border-white/5">
               <img 
-                src="https://i.imgur.com/9fYLAzP.png" 
+                src="https://i.imgur.com/9fYLAzPl.png" 
                 alt="Bônus Exclusivo" 
                 className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity duration-300" 
                 referrerPolicy="no-referrer"
@@ -579,7 +579,7 @@ const WhatYouReceiveSection = () => (
           <div className="p-8 rounded-3xl bg-accent/10 border border-accent/20 h-full flex flex-col">
             <div className="w-full aspect-video bg-black/20 rounded-xl mb-6 overflow-hidden border border-white/5">
               <img 
-                src="https://i.imgur.com/ocTi3iG.png" 
+                src="https://i.imgur.com/ocTi3iGl.png" 
                 alt="Bônus Exclusivo" 
                 className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity duration-300" 
                 referrerPolicy="no-referrer"
@@ -600,7 +600,7 @@ const WhatYouReceiveSection = () => (
           <div className="p-8 rounded-3xl bg-accent/10 border border-accent/20 h-full flex flex-col">
             <div className="w-full aspect-video bg-black/20 rounded-xl mb-6 overflow-hidden border border-white/5">
               <img 
-                src="https://i.imgur.com/uTFMaGI.png"  
+                src="https://i.imgur.com/uTFMaGIl.png"  
                 alt="Bônus Exclusivo" 
                 className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity duration-300" 
                 referrerPolicy="no-referrer"
@@ -709,7 +709,7 @@ const WhatYouReceiveSection = () => (
               
               <div className="flex justify-center opacity-60 hover:opacity-100 transition-opacity">
               <img 
-                src="https://i.imgur.com/8ypyhmQ.png" 
+                src="https://i.imgur.com/8ypyhmQm.png" 
                 alt="Formas de Pagamento" 
                 className="h-8 object-contain" 
                 referrerPolicy="no-referrer" 
