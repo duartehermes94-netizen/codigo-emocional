@@ -558,7 +558,7 @@ const WhatYouReceiveSection = () => (
           <div className="p-8 rounded-3xl bg-accent/10 border border-accent/20 h-full flex flex-col">
             <div className="w-full aspect-video bg-black/20 rounded-xl mb-6 overflow-hidden border border-white/5">
               <img 
-                src="https://i.imgur.com/9fYLAzP.png" 
+                src="https://i.ibb.co/F473yshF/Design-sem-nome-30.webp" 
                 alt="Bônus Exclusivo" 
                 className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity duration-300" 
                 referrerPolicy="no-referrer"
@@ -579,7 +579,7 @@ const WhatYouReceiveSection = () => (
           <div className="p-8 rounded-3xl bg-accent/10 border border-accent/20 h-full flex flex-col">
             <div className="w-full aspect-video bg-black/20 rounded-xl mb-6 overflow-hidden border border-white/5">
               <img 
-                src="https://i.imgur.com/ocTi3iG.png" 
+                src="https://i.ibb.co/chhMSJJQ/Design-sem-nome-29.webp" 
                 alt="Bônus Exclusivo" 
                 className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity duration-300" 
                 referrerPolicy="no-referrer"
